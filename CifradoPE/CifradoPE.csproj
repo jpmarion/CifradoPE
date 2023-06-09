@@ -10,4 +10,10 @@
     <PackageReference Include="CompartidoPE" Version="1.0.9" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Aplicacion\" />
+    <Folder Include="Dominio\" />
+    <Folder Include="Infraestructura\" />
+  </ItemGroup>
+
 </Project>

@@ -1,9 +1,10 @@
 ﻿namespace CifradoPE.Dominio.Inteface
 {
-    internal interface ICifrado
+    public interface ICifrado
     {
         string Key { get; set; }
-        string PrivateKet { get; set; }
+        string IV { get; set; }
         string Texto { get; set; }
+        string TextoProcesado { get; set; }
     }
 }

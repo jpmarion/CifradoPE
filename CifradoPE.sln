@@ -5,6 +5,8 @@ VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CifradoPE", "CifradoPE\CifradoPE.csproj", "{131DABCF-BFEE-416D-B7A2-97A952994FE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaCifrado", "PruebaCifrado\PruebaCifrado.csproj", "{AE148942-5F25-4A72-AD05-DE0533D6245C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{131DABCF-BFEE-416D-B7A2-97A952994FE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{131DABCF-BFEE-416D-B7A2-97A952994FE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{131DABCF-BFEE-416D-B7A2-97A952994FE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE148942-5F25-4A72-AD05-DE0533D6245C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE148942-5F25-4A72-AD05-DE0533D6245C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE148942-5F25-4A72-AD05-DE0533D6245C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE148942-5F25-4A72-AD05-DE0533D6245C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

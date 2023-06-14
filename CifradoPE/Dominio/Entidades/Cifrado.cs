@@ -1,11 +1,12 @@
-﻿using CifradoPE.Dominio.Entidades.Interface;
+﻿using CifradoPE.Dominio.Inteface;
 
 namespace CifradoPE.Dominio.Entidades
 {
-        internal class Cifrado : ICifrado
+    public class Cifrado : ICifrado
     {
         public string Texto { get; set; }
         public string Key { get; set; }
-        public string PrivateKet { get; set; }
+        public string IV { get; set; }
+        public string TextoProcesado { get ; set; }
     }
 }

@@ -1,5 +1,4 @@
-﻿using CifradoPE.Dominio.Inteface;
-using CifradoPE.Infraestructura.Interface;
+﻿using CifradoPE.Infraestructura.Interface;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -7,11 +6,22 @@ namespace CifradoPE.Infraestructura
 {
     public class AesAsimetrico : IAes
     {
-        public ICifrado Desencriptar(ICifrado cifrado)
+        private readonly string _key;
+        private readonly string _iV;
+
+        public AesAsimetrico(string key, string IV)
         {
-            byte[] key = Encoding.UTF8.GetBytes(cifrado.Key);
-            byte[] iv = Encoding.UTF8.GetBytes(cifrado.IV);
-            byte[] cipherTextBytes = Convert.FromBase64String(cifrado.Texto);
+            _key = @"{@BCe-DWtXGWZu7`k7W^&t];<9'vB>r=" + key;
+            _key = _key.Substring(key.Length, 32);
+            _iV = @"?`Zh>guSY_N3+MR3" + IV;
+            _iV = _iV.Substring(IV.Length, 16);
+        }
+
+        public string Desencriptar(string texto)
+        {
+            byte[] key = Encoding.UTF8.GetBytes(_key);
+            byte[] iv = Encoding.UTF8.GetBytes(_iV);
+            byte[] cipherTextBytes = Convert.FromBase64String(texto);
             string plainText;
 
             using (Aes aesAlg = Aes.Create())
@@ -32,14 +42,12 @@ namespace CifradoPE.Infraestructura
                     }
                 }
             }
-            cifrado.TextoProcesado = plainText;
-            return cifrado;
+            return plainText;
         }
-
-        public ICifrado Encriptar(ICifrado cifrado)
+        public string Encriptar(string texto)
         {
-            byte[] key = Encoding.UTF8.GetBytes(cifrado.Key);
-            byte[] iv = Encoding.UTF8.GetBytes(cifrado.IV);
+            byte[] key = Encoding.UTF8.GetBytes(_key);
+            byte[] iv = Encoding.UTF8.GetBytes(_iV);
             byte[] encryptedBytes;
 
             using (Aes aesAlg = Aes.Create())
@@ -54,14 +62,13 @@ namespace CifradoPE.Infraestructura
                     {
                         using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
                         {
-                            swEncrypt.Write(cifrado.Texto);
+                            swEncrypt.Write(texto);
                         }
                         encryptedBytes = msEncrypt.ToArray();
                     }
                 }
             }
-            cifrado.TextoProcesado = Convert.ToBase64String(encryptedBytes);
-            return cifrado;
+            return Convert.ToBase64String(encryptedBytes);
         }
     }
 }

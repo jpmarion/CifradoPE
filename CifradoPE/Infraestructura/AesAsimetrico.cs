@@ -6,15 +6,18 @@ namespace CifradoPE.Infraestructura
 {
     public class AesAsimetrico : IAes
     {
-        private readonly string _key;
+        private string _key;
         private readonly string _iV;
 
-        public AesAsimetrico(string key, string IV)
+        public AesAsimetrico(string IV)
+        {
+            _iV = @"?`Zh>guSY_N3+MR3" + IV;
+            _iV = _iV.Substring(IV.Length, 16);
+        }
+        public void Key(string key)
         {
             _key = @"{@BCe-DWtXGWZu7`k7W^&t];<9'vB>r=" + key;
             _key = _key.Substring(key.Length, 32);
-            _iV = @"?`Zh>guSY_N3+MR3" + IV;
-            _iV = _iV.Substring(IV.Length, 16);
         }
 
         public string Desencriptar(string texto)
